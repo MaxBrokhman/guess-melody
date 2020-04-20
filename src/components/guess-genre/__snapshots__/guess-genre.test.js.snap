@@ -92,26 +92,28 @@ exports[`Renders GuessGenre component correctly 1`] = `
       >
         <button
           className="track__button track__button--play"
+          onClick={[Function]}
           type="button"
         />
         <div
           className="track__status"
         >
-          <audio />
+          <audio
+            src="/01 - Nine Inch Nails - Letting Go While Holding On.mp3"
+          />
         </div>
         <div
           className="game__answer"
         >
           <input
             className="game__input visually-hidden"
-            id="answer-1"
+            id="answer-undefined"
             name="answer"
             type="checkbox"
-            value="answer-1"
           />
           <label
             className="game__check"
-            htmlFor="answer-1"
+            htmlFor="answer-undefined"
           >
             Отметить
           </label>
@@ -122,26 +124,28 @@ exports[`Renders GuessGenre component correctly 1`] = `
       >
         <button
           className="track__button track__button--play"
+          onClick={[Function]}
           type="button"
         />
         <div
           className="track__status"
         >
-          <audio />
+          <audio
+            src="/02 - Nine Inch Nails - Together.mp3"
+          />
         </div>
         <div
           className="game__answer"
         >
           <input
             className="game__input visually-hidden"
-            id="answer-2"
+            id="answer-undefined"
             name="answer"
             type="checkbox"
-            value="answer-0"
           />
           <label
             className="game__check"
-            htmlFor="answer-2"
+            htmlFor="answer-undefined"
           >
             Отметить
           </label>
@@ -152,26 +156,28 @@ exports[`Renders GuessGenre component correctly 1`] = `
       >
         <button
           className="track__button track__button--play"
+          onClick={[Function]}
           type="button"
         />
         <div
           className="track__status"
         >
-          <audio />
+          <audio
+            src="/03 - Nine Inch Nails - Out In The Open.mp3"
+          />
         </div>
         <div
           className="game__answer"
         >
           <input
             className="game__input visually-hidden"
-            id="answer-2"
+            id="answer-undefined"
             name="answer"
             type="checkbox"
-            value="answer-1"
           />
           <label
             className="game__check"
-            htmlFor="answer-2"
+            htmlFor="answer-undefined"
           >
             Отметить
           </label>
@@ -182,56 +188,28 @@ exports[`Renders GuessGenre component correctly 1`] = `
       >
         <button
           className="track__button track__button--play"
+          onClick={[Function]}
           type="button"
         />
         <div
           className="track__status"
         >
-          <audio />
+          <audio
+            src="/04 - Nine Inch Nails - With Faith.mp3"
+          />
         </div>
         <div
           className="game__answer"
         >
           <input
             className="game__input visually-hidden"
-            id="answer-2"
+            id="answer-undefined"
             name="answer"
             type="checkbox"
-            value="answer-2"
           />
           <label
             className="game__check"
-            htmlFor="answer-2"
-          >
-            Отметить
-          </label>
-        </div>
-      </div>
-      <div
-        className="track"
-      >
-        <button
-          className="track__button track__button--play"
-          type="button"
-        />
-        <div
-          className="track__status"
-        >
-          <audio />
-        </div>
-        <div
-          className="game__answer"
-        >
-          <input
-            className="game__input visually-hidden"
-            id="answer-2"
-            name="answer"
-            type="checkbox"
-            value="answer-3"
-          />
-          <label
-            className="game__check"
-            htmlFor="answer-2"
+            htmlFor="answer-undefined"
           >
             Отметить
           </label>

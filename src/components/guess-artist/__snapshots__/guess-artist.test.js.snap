@@ -91,12 +91,15 @@ exports[`Renders GuessArtist component correctly 1`] = `
       >
         <button
           className="track__button track__button--play"
+          onClick={[Function]}
           type="button"
         />
         <div
           className="track__status"
         >
-          <audio />
+          <audio
+            src="/05 - Nine Inch Nails - Apart.mp3"
+          />
         </div>
       </div>
     </div>

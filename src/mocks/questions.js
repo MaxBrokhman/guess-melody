@@ -4,27 +4,31 @@ export const questions = [
     answer: `blues`,
     options: [
       {
-        src: `#`,
-        genre: `jazz`
+        src: `/01 - Nine Inch Nails - Letting Go While Holding On.mp3`,
+        genre: `jazz`,
+        id: `00`,
       },
       {
-        src: `#`,
-        genre: `blues`
+        src: `/02 - Nine Inch Nails - Together.mp3`,
+        genre: `blues`,
+        id: `01`,
       },
       {
-        src: `#`,
-        genre: `rock`
+        src: `/03 - Nine Inch Nails - Out In The Open.mp3`,
+        genre: `rock`,
+        id: `02`
       },
       {
-        src: `#`,
-        genre: `blues`
+        src: `/04 - Nine Inch Nails - With Faith.mp3`,
+        genre: `blues`,
+        id: `03`
       }
     ]
   },
   {
     type: `artist`,
     answer: `The Stooges`,
-    src: `#`,
+    src: `/05 - Nine Inch Nails - Apart.mp3`,
     options: [
       {
         imgSrc: `http://placehold.it/134x134`,
@@ -45,20 +49,24 @@ export const questions = [
     answer: `rock`,
     options: [
       {
-        src: `#`,
-        genre: `jazz`
+        src: `/01 - Nine Inch Nails - Letting Go While Holding On.mp3`,
+        genre: `jazz`,
+        id: `04`
       },
       {
-        src: `#`,
-        genre: `blues`
+        src: `/02 - Nine Inch Nails - Together.mp3`,
+        genre: `blues`,
+        id: `05`
       },
       {
-        src: `#`,
-        genre: `rock`
+        src: `/03 - Nine Inch Nails - Out In The Open.mp3`,
+        genre: `rock`,
+        id: `06`
       },
       {
-        src: `#`,
-        genre: `rock`
+        src: `/04 - Nine Inch Nails - With Faith.mp3`,
+        genre: `rock`,
+        id: `07`
       }
     ]
   }
