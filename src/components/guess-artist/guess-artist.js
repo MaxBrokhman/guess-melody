@@ -35,9 +35,9 @@ export const GuessArtist = ({ question, answerHandler }) => {
         <div className="game__track">
           <Audioplayer
             // eslint-disable-next-line
-                src={question.src}
+            src={question.src}
             // eslint-disable-next-line
-                type={question.type} 
+            type={question.type} 
             activeTrack={activeTrack}
             clickHandler={playerClickHandler}
           />

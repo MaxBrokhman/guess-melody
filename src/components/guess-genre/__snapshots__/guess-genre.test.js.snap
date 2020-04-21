@@ -107,13 +107,14 @@ exports[`Renders GuessGenre component correctly 1`] = `
         >
           <input
             className="game__input visually-hidden"
-            id="answer-undefined"
+            id="answer-/01 - Nine Inch Nails - Letting Go While Holding On.mp3"
             name="answer"
             type="checkbox"
+            value="/01 - Nine Inch Nails - Letting Go While Holding On.mp3"
           />
           <label
             className="game__check"
-            htmlFor="answer-undefined"
+            htmlFor="answer-/01 - Nine Inch Nails - Letting Go While Holding On.mp3"
           >
             Отметить
           </label>
@@ -139,13 +140,14 @@ exports[`Renders GuessGenre component correctly 1`] = `
         >
           <input
             className="game__input visually-hidden"
-            id="answer-undefined"
+            id="answer-/02 - Nine Inch Nails - Together.mp3"
             name="answer"
             type="checkbox"
+            value="/02 - Nine Inch Nails - Together.mp3"
           />
           <label
             className="game__check"
-            htmlFor="answer-undefined"
+            htmlFor="answer-/02 - Nine Inch Nails - Together.mp3"
           >
             Отметить
           </label>
@@ -171,13 +173,14 @@ exports[`Renders GuessGenre component correctly 1`] = `
         >
           <input
             className="game__input visually-hidden"
-            id="answer-undefined"
+            id="answer-/03 - Nine Inch Nails - Out In The Open.mp3"
             name="answer"
             type="checkbox"
+            value="/03 - Nine Inch Nails - Out In The Open.mp3"
           />
           <label
             className="game__check"
-            htmlFor="answer-undefined"
+            htmlFor="answer-/03 - Nine Inch Nails - Out In The Open.mp3"
           >
             Отметить
           </label>
@@ -203,13 +206,14 @@ exports[`Renders GuessGenre component correctly 1`] = `
         >
           <input
             className="game__input visually-hidden"
-            id="answer-undefined"
+            id="answer-/04 - Nine Inch Nails - With Faith.mp3"
             name="answer"
             type="checkbox"
+            value="/04 - Nine Inch Nails - With Faith.mp3"
           />
           <label
             className="game__check"
-            htmlFor="answer-undefined"
+            htmlFor="answer-/04 - Nine Inch Nails - With Faith.mp3"
           >
             Отметить
           </label>

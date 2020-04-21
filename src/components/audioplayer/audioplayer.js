@@ -1,7 +1,7 @@
 import React, {useRef} from 'react';
 
 const useActiveTrack = (activeTrack, {current}) => {
-  const isCurrentTrackActive = activeTrack === current && current !== null;
+  const isCurrentTrackActive = current && activeTrack === current.src;
   const className = isCurrentTrackActive
     ? `pause`
     : `play`;
@@ -15,7 +15,7 @@ const useActiveTrack = (activeTrack, {current}) => {
   };
 };
 // eslint-disable-next-line
-export const Audioplayer = ({src, type, id, activeTrack, clickHandler}) => {
+export const Audioplayer = ({src, type, activeTrack, clickHandler}) => {
   const audioRef = useRef(null);
   const {className} = useActiveTrack(activeTrack, audioRef);
   return (
@@ -32,8 +32,8 @@ export const Audioplayer = ({src, type, id, activeTrack, clickHandler}) => {
       </div>
       {
         type === `genre` && <div className="game__answer">
-          <input className="game__input visually-hidden" type="checkbox" name="answer" value={id} id={`answer-${id}`} />
-          <label className="game__check" htmlFor={`answer-${id}`}>Отметить</label>
+          <input className="game__input visually-hidden" type="checkbox" name="answer" value={src} id={`answer-${src}`} />
+          <label className="game__check" htmlFor={`answer-${src}`}>Отметить</label>
         </div>
       }
     </div>

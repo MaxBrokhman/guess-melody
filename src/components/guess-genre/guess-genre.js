@@ -3,13 +3,14 @@ import React, {useState} from 'react';
 import {Audioplayer} from '../audioplayer/audioplayer';
 
 export const useTracks = () => {
-  const [activeTrack, setActiveTrack] = useState(null);
+  const [activeTrack, setActiveTrack] = useState(``);
+
   const playerClickHandler = (ref) => () => {
     const {current} = ref;
     if (current) {
-      const trackToSet = activeTrack !== current
-        ? current
-        : null;
+      const trackToSet = activeTrack !== current.src
+        ? current.src
+        : ``;
       setActiveTrack(trackToSet);
     }
   };

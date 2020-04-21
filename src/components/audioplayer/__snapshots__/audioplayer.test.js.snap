@@ -20,14 +20,14 @@ exports[`Renders Audioplayer component correctly 1`] = `
   >
     <input
       className="game__input visually-hidden"
-      id="answer-00"
+      id="answer-/01 - Nine Inch Nails - Letting Go While Holding On.mp3"
       name="answer"
       type="checkbox"
-      value="00"
+      value="/01 - Nine Inch Nails - Letting Go While Holding On.mp3"
     />
     <label
       className="game__check"
-      htmlFor="answer-00"
+      htmlFor="answer-/01 - Nine Inch Nails - Letting Go While Holding On.mp3"
     >
       Отметить
     </label>

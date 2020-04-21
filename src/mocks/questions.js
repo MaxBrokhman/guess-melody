@@ -2,6 +2,7 @@ export const questions = [
   {
     type: `genre`,
     answer: `blues`,
+    id: `01`,
     options: [
       {
         src: `/01 - Nine Inch Nails - Letting Go While Holding On.mp3`,
@@ -28,6 +29,7 @@ export const questions = [
   {
     type: `artist`,
     answer: `The Stooges`,
+    id: `02`,
     src: `/05 - Nine Inch Nails - Apart.mp3`,
     options: [
       {
@@ -47,6 +49,7 @@ export const questions = [
   {
     type: `genre`,
     answer: `rock`,
+    id: `03`,
     options: [
       {
         src: `/01 - Nine Inch Nails - Letting Go While Holding On.mp3`,
