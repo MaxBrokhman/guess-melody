@@ -2,12 +2,13 @@ import {createContext, useContext} from 'react';
 
 export const initialState = {
   mistakes: 0,
-  currentQuestion: -1
+  currentQuestion: -1,
+  time: 300,
 };
 
 const initialContext = {
   state: initialState,
-  dispatch: null
+  dispatch: null,
 };
 
 export const Context = createContext(initialContext);
@@ -24,8 +25,10 @@ export const reducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         mistakes: state.mistakes + 1,
       });
-    case `TOO_MANY_MISTAKES`:
+    case `LOOSE`:
       return Object.assign({}, initialState);
+    case `TICK`:
+      return Object.assign({}, state, {time: action.payload});
     default:
       return state;
   }

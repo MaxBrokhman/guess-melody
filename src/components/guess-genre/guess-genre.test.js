@@ -9,7 +9,7 @@ it(`Renders GuessGenre component correctly`, () => {
                 .create(
                     <GuessGenre
                       question={questions[0]}
-                      answerHandler={jest.fn()}
+                      time={{min: `03`, sec: `12`}}
                     />
                 )
                 .toJSON();

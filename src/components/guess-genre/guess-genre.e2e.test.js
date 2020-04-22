@@ -9,7 +9,7 @@ Enzyme.configure({adapter: new Adapter()});
 
 it(`GuessGenre component rendered correctly, submit handler works`, () => {
   const tree = mount(
-      <GuessGenre question={questions[0]} />
+      <GuessGenre question={questions[0]} time={{min: `03`, sec: `12`}} />
   );
   const tracks = tree.find(`.track`);
   expect(tracks).toHaveLength(4);

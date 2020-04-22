@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders Timer component correctly 1`] = `
+<div
+  className="timer__value"
+  xmlns="http://www.w3.org/1999/xhtml"
+>
+  <span
+    className="timer__mins"
+  >
+    03
+  </span>
+  <span
+    className="timer__dots"
+  >
+    :
+  </span>
+  <span
+    className="timer__secs"
+  >
+    50
+  </span>
+</div>
+`;

@@ -48,7 +48,7 @@ exports[`Renders GuessArtist component correctly 1`] = `
       <span
         className="timer__mins"
       >
-        05
+        03
       </span>
       <span
         className="timer__dots"
@@ -58,7 +58,7 @@ exports[`Renders GuessArtist component correctly 1`] = `
       <span
         className="timer__secs"
       >
-        00
+        12
       </span>
     </div>
     <div

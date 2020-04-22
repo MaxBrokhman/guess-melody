@@ -5,9 +5,10 @@ import {useTracks} from '../guess-genre/hooks';
 import {MistakeCounter} from '../mistake-counter/mistake-counter';
 import {useAppContext} from '../../reducer/reducer';
 import {useArtistAnswer} from './hooks';
+import {Timer} from '../timer/timer';
 
 // eslint-disable-next-line
-export const GuessArtist = ({ question }) => {
+export const GuessArtist = ({ question, time }) => {
   const {activeTrack, playerClickHandler} = useTracks();
   const {state, dispatch} = useAppContext();
   const {answerHandler} = useArtistAnswer({
@@ -27,11 +28,7 @@ export const GuessArtist = ({ question }) => {
           <circle className="timer__line" cx="390" cy="390" r="370" style={{filter: `url(#blur)`, transform: `rotate(-90deg) scaleY(-1)`, transformOrigin: `center`}} />
         </svg>
 
-        <div className="timer__value" xmlns="http://www.w3.org/1999/xhtml">
-          <span className="timer__mins">05</span>
-          <span className="timer__dots">:</span>
-          <span className="timer__secs">00</span>
-        </div>
+        <Timer time={time} />
 
         <MistakeCounter mistakes={new Array(state.mistakes).fill(false)} />
       </header>

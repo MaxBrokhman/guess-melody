@@ -8,7 +8,7 @@ const handleWrongAnswer = ({mistakes, limit, dispatch}) => {
     dispatch({type: `MISTAKE`});
     return getNextQuestion(dispatch);
   }
-  return dispatch({type: `TOO_MANY_MISTAKES`});
+  return dispatch({type: `LOOSE`});
 };
 
 export const handleAnswer = ({
@@ -31,6 +31,12 @@ export const handleAnswer = ({
   return getNextQuestion(dispatch);
 };
 
+export const handleTime = (newTime, dispatch) => {
+  const action = newTime > 0
+    ? {type: `TICK`, payload: newTime}
+    : {type: `LOOSE`};
+  dispatch(action);
+};
 
 const checkGenreAnswer = (picked, correct) => picked.every((answer, i) => answer === correct[i]);
 

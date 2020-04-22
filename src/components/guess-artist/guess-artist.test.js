@@ -9,6 +9,7 @@ it(`Renders GuessArtist component correctly`, () => {
                 .create(
                     <GuessArtist
                       question={questions[1]}
+                      time={{min: `03`, sec: `12`}}
                     />
                 )
                 .toJSON();

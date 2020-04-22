@@ -4,9 +4,10 @@ import {Audioplayer} from '../audioplayer/audioplayer';
 import {MistakeCounter} from '../mistake-counter/mistake-counter';
 import {useAppContext} from '../../reducer/reducer';
 import {useTracks, useGenreAnswer} from './hooks';
+import {Timer} from '../timer/timer';
 
 // eslint-disable-next-line
-export const GuessGenre = ({question}) => {
+export const GuessGenre = ({question, time}) => {
   const {activeTrack, playerClickHandler} = useTracks();
   const {state, dispatch} = useAppContext();
   const {changeHandler, submitHandler} = useGenreAnswer({
@@ -27,11 +28,7 @@ export const GuessGenre = ({question}) => {
             style={{filter: `url(#blur)`, transform: `rotate(-90deg) scaleY(-1)`, transformOrigin: `center`}} />
         </svg>
 
-        <div className="timer__value" xmlns="http://www.w3.org/1999/xhtml">
-          <span className="timer__mins">05</span>
-          <span className="timer__dots">:</span>
-          <span className="timer__secs">00</span>
-        </div>
+        <Timer time={time} />
 
         <MistakeCounter mistakes={new Array(state.mistakes).fill(false)} />
       </header>
