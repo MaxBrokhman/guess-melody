@@ -13,7 +13,6 @@ describe(`Audioplayer component rendered correctly, play button handler works`, 
     const tree = shallow(
         <Audioplayer
           src={questions[0].options[0].src}
-          type={questions[0].type}
           activeTrack={``}
           clickHandler={clickHandler}
         />

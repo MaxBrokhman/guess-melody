@@ -15,11 +15,11 @@ const useActiveTrack = (activeTrack, {current}) => {
   };
 };
 // eslint-disable-next-line
-export const Audioplayer = ({src, type, activeTrack, clickHandler}) => {
+export const Audioplayer = ({src, activeTrack, clickHandler}) => {
   const audioRef = useRef(null);
   const {className} = useActiveTrack(activeTrack, audioRef);
   return (
-    <div className="track">
+    <>
       <button
         className={`track__button track__button--${className}`}
         type="button"
@@ -30,12 +30,6 @@ export const Audioplayer = ({src, type, activeTrack, clickHandler}) => {
         {// eslint-disable-next-line
           <audio src={src} ref={audioRef}></audio>}
       </div>
-      {
-        type === `genre` && <div className="game__answer">
-          <input className="game__input visually-hidden" type="checkbox" name="answer" value={src} id={`answer-${src}`} />
-          <label className="game__check" htmlFor={`answer-${src}`}>Отметить</label>
-        </div>
-      }
-    </div>
+    </>
   );
 };

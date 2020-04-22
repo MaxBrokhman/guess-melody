@@ -9,7 +9,6 @@ it(`Renders GuessArtist component correctly`, () => {
                 .create(
                     <GuessArtist
                       question={questions[1]}
-                      answerHandler={jest.fn()}
                     />
                 )
                 .toJSON();

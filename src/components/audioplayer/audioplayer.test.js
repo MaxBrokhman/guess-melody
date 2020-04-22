@@ -10,8 +10,6 @@ it(`Renders Audioplayer component correctly`, () => {
                 .create(
                     <Audioplayer
                       src={questions[0].options[0].src}
-                      type={questions[0].type}
-                      id={questions[0].options[0].id}
                       activeTrack={new Audio(questions[0].options[0].src)}
                       clickHandler={clickHandler}
                     />

@@ -4,11 +4,17 @@ import {Audioplayer} from '../audioplayer/audioplayer';
 import {useTracks} from '../guess-genre/hooks';
 import {MistakeCounter} from '../mistake-counter/mistake-counter';
 import {useAppContext} from '../../reducer/reducer';
+import {useArtistAnswer} from './hooks';
 
 // eslint-disable-next-line
-export const GuessArtist = ({ question, answerHandler }) => {
+export const GuessArtist = ({ question }) => {
   const {activeTrack, playerClickHandler} = useTracks();
-  const {state} = useAppContext();
+  const {state, dispatch} = useAppContext();
+  const {answerHandler} = useArtistAnswer({
+    question,
+    dispatch,
+    mistakes: state.mistakes,
+  });
   return (
     <section className="game game--artist">
       <header className="game__header">
@@ -36,8 +42,6 @@ export const GuessArtist = ({ question, answerHandler }) => {
           <Audioplayer
             // eslint-disable-next-line
             src={question.src}
-            // eslint-disable-next-line
-            type={question.type} 
             activeTrack={activeTrack}
             clickHandler={playerClickHandler}
           />
@@ -47,7 +51,7 @@ export const GuessArtist = ({ question, answerHandler }) => {
           {// eslint-disable-next-line
           question.options.map(({ artist, imgSrc }, i) => (
               <div className="artist" key={i}>
-                <input className="artist__input visually-hidden" type="radio" name="answer" value={i} id={`answer-${i}`} onChange={answerHandler} />
+                <input className="artist__input visually-hidden" type="radio" name="answer" value={i} id={`answer-${i}`} onChange={answerHandler(i)} />
                 <label className="artist__name" htmlFor={`answer-${i}`}>
                   <img className="artist__picture" src={imgSrc} alt={artist} />
                   {artist}

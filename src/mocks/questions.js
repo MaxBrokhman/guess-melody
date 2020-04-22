@@ -72,5 +72,25 @@ export const questions = [
         id: `07`
       }
     ]
+  },
+  {
+    type: `artist`,
+    answer: `Frank Sinatra`,
+    id: `02`,
+    src: `/05 - Nine Inch Nails - Apart.mp3`,
+    options: [
+      {
+        imgSrc: `http://placehold.it/134x134`,
+        artist: `Bob Marley`
+      },
+      {
+        imgSrc: `http://placehold.it/134x134`,
+        artist: `The Stooges`
+      },
+      {
+        imgSrc: `http://placehold.it/134x134`,
+        artist: `Frank Sinatra`
+      }
+    ]
   }
 ];

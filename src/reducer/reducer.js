@@ -24,6 +24,8 @@ export const reducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         mistakes: state.mistakes + 1,
       });
+    case `TOO_MANY_MISTAKES`:
+      return Object.assign({}, initialState);
     default:
       return state;
   }

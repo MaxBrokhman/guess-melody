@@ -71,11 +71,11 @@ exports[`Renders GuessGenre component correctly 1`] = `
     <h2
       className="game__title"
     >
-      Выберите инди-рок треки
+      Выберите blues треки
     </h2>
     <form
       className="game__tracks"
-      onSubmit={[MockFunction]}
+      onSubmit={[Function]}
     >
       <div
         className="track"
@@ -99,8 +99,9 @@ exports[`Renders GuessGenre component correctly 1`] = `
             className="game__input visually-hidden"
             id="answer-/01 - Nine Inch Nails - Letting Go While Holding On.mp3"
             name="answer"
+            onChange={[Function]}
             type="checkbox"
-            value="/01 - Nine Inch Nails - Letting Go While Holding On.mp3"
+            value={0}
           />
           <label
             className="game__check"
@@ -132,8 +133,9 @@ exports[`Renders GuessGenre component correctly 1`] = `
             className="game__input visually-hidden"
             id="answer-/02 - Nine Inch Nails - Together.mp3"
             name="answer"
+            onChange={[Function]}
             type="checkbox"
-            value="/02 - Nine Inch Nails - Together.mp3"
+            value={1}
           />
           <label
             className="game__check"
@@ -165,8 +167,9 @@ exports[`Renders GuessGenre component correctly 1`] = `
             className="game__input visually-hidden"
             id="answer-/03 - Nine Inch Nails - Out In The Open.mp3"
             name="answer"
+            onChange={[Function]}
             type="checkbox"
-            value="/03 - Nine Inch Nails - Out In The Open.mp3"
+            value={2}
           />
           <label
             className="game__check"
@@ -198,8 +201,9 @@ exports[`Renders GuessGenre component correctly 1`] = `
             className="game__input visually-hidden"
             id="answer-/04 - Nine Inch Nails - With Faith.mp3"
             name="answer"
+            onChange={[Function]}
             type="checkbox"
-            value="/04 - Nine Inch Nails - With Faith.mp3"
+            value={3}
           />
           <label
             className="game__check"

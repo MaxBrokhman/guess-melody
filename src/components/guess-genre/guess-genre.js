@@ -3,12 +3,17 @@ import React from 'react';
 import {Audioplayer} from '../audioplayer/audioplayer';
 import {MistakeCounter} from '../mistake-counter/mistake-counter';
 import {useAppContext} from '../../reducer/reducer';
-import {useTracks} from './hooks';
+import {useTracks, useGenreAnswer} from './hooks';
 
 // eslint-disable-next-line
-export const GuessGenre = ({question, answerHandler}) => {
+export const GuessGenre = ({question}) => {
   const {activeTrack, playerClickHandler} = useTracks();
-  const {state} = useAppContext();
+  const {state, dispatch} = useAppContext();
+  const {changeHandler, submitHandler} = useGenreAnswer({
+    question,
+    dispatch,
+    mistakes: state.mistakes,
+  });
   return (
     <section className="game game--genre">
       <header className="game__header">
@@ -32,18 +37,29 @@ export const GuessGenre = ({question, answerHandler}) => {
       </header>
 
       <section className="game__screen">
-        <h2 className="game__title">Выберите инди-рок треки</h2>
-        <form className="game__tracks" onSubmit={answerHandler}>
+        {// eslint-disable-next-line
+        <h2 className="game__title">{`Выберите ${question.answer} треки`}</h2>}
+        <form className="game__tracks" onSubmit={submitHandler}>
           {// eslint-disable-next-line
-          question.options.map(({src, id}) => (
-              <Audioplayer
-                src={src}
-                key={id}
-                // eslint-disable-next-line
-                type={question.type} 
-                activeTrack={activeTrack}
-                clickHandler={playerClickHandler}
-              />
+          question.options.map(({src, id}, i) => (
+              <div className="track" key={id}>
+                <Audioplayer
+                  src={src}
+                  activeTrack={activeTrack}
+                  clickHandler={playerClickHandler}
+                />
+                <div className="game__answer">
+                  <input
+                    className="game__input visually-hidden"
+                    type="checkbox"
+                    name="answer"
+                    value={i}
+                    id={`answer-${src}`}
+                    onChange={changeHandler(i)}
+                  />
+                  <label className="game__check" htmlFor={`answer-${src}`}>Отметить</label>
+                </div>
+              </div>
             ))
           }
           <button className="game__submit button" type="submit">Ответить</button>

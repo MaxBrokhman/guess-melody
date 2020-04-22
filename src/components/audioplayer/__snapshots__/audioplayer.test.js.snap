@@ -1,36 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Renders Audioplayer component correctly 1`] = `
-<div
-  className="track"
->
+Array [
   <button
     className="track__button track__button--play"
     type="button"
-  />
+  />,
   <div
     className="track__status"
   >
     <audio
       src="/01 - Nine Inch Nails - Letting Go While Holding On.mp3"
     />
-  </div>
-  <div
-    className="game__answer"
-  >
-    <input
-      className="game__input visually-hidden"
-      id="answer-/01 - Nine Inch Nails - Letting Go While Holding On.mp3"
-      name="answer"
-      type="checkbox"
-      value="/01 - Nine Inch Nails - Letting Go While Holding On.mp3"
-    />
-    <label
-      className="game__check"
-      htmlFor="answer-/01 - Nine Inch Nails - Letting Go While Holding On.mp3"
-    >
-      Отметить
-    </label>
-  </div>
-</div>
+  </div>,
+]
 `;
