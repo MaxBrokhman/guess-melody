@@ -1,27 +1,14 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 import {Audioplayer} from '../audioplayer/audioplayer';
+import {MistakeCounter} from '../mistake-counter/mistake-counter';
+import {useAppContext} from '../../reducer/reducer';
+import {useTracks} from './hooks';
 
-export const useTracks = () => {
-  const [activeTrack, setActiveTrack] = useState(``);
-
-  const playerClickHandler = (ref) => () => {
-    const {current} = ref;
-    if (current) {
-      const trackToSet = activeTrack !== current.src
-        ? current.src
-        : ``;
-      setActiveTrack(trackToSet);
-    }
-  };
-  return {
-    activeTrack,
-    playerClickHandler,
-  };
-};
 // eslint-disable-next-line
 export const GuessGenre = ({question, answerHandler}) => {
   const {activeTrack, playerClickHandler} = useTracks();
+  const {state} = useAppContext();
   return (
     <section className="game game--genre">
       <header className="game__header">
@@ -41,11 +28,7 @@ export const GuessGenre = ({question, answerHandler}) => {
           <span className="timer__secs">00</span>
         </div>
 
-        <div className="game__mistakes">
-          <div className="wrong"></div>
-          <div className="wrong"></div>
-          <div className="wrong"></div>
-        </div>
+        <MistakeCounter mistakes={new Array(state.mistakes).fill(false)} />
       </header>
 
       <section className="game__screen">
