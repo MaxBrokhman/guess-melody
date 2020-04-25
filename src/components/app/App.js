@@ -2,6 +2,7 @@ import React, {useReducer} from 'react';
 
 import {WelcomeScreen} from '../welcome-screen/welcome-screen';
 import {GameScreen} from '../game-screen/game-screen';
+import {useQuestionsRequest} from './hooks';
 import {
   reducer,
   initialState,
@@ -10,7 +11,7 @@ import {
 
 export const App = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
-  // eslint-disable-next-line
+  useQuestionsRequest(dispatch);
   return (
     <Context.Provider value={{state, dispatch}}>
       {

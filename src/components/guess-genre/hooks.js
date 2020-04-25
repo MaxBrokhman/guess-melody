@@ -24,7 +24,7 @@ export const useGenreAnswer = ({
   dispatch,
   mistakes,
 }) => {
-  const [answers, setAnswer] = useState(new Array(question.options.length).fill(false));
+  const [answers, setAnswer] = useState(new Array(question.answers.length).fill(false));
   const changeHandler = useCallback((idx) => () => {
     const updatedAnswers = [...answers];
     updatedAnswers[idx] = !updatedAnswers[idx];
@@ -38,8 +38,8 @@ export const useGenreAnswer = ({
       type: question.type,
       picked: answers,
       mistakes,
-      correct: question.options.map((item) => {
-        return item.genre === question.answer;
+      correct: question.answers.map((answer) => {
+        return answer.genre === question.genre;
       })
     });
   }, [answers, question]);

@@ -5,12 +5,14 @@ import {GuessGenre} from '../guess-genre/guess-genre';
 import {useCurrentQuestion, useTimer} from './hooks';
 import {useAppContext} from '../../reducer/reducer';
 
-// eslint-disable-next-line
 export const GameScreen = () => {
-  const {question} = useCurrentQuestion();
   const {state, dispatch} = useAppContext();
+  const {question} = useCurrentQuestion({
+    currentQuestion: state.currentQuestion,
+    questions: state.questions,
+    dispatch,
+  });
   const {time} = useTimer(state.time, dispatch);
-  // eslint-disable-next-line
   switch (question.type) {
     case `artist`:
       return (<GuessArtist question={question} time={time} />);

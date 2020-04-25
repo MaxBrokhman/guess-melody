@@ -11,8 +11,8 @@ export const useArtistAnswer = ({
     handleAnswer({
       dispatch,
       type: question.type,
-      picked: question.options[idx].artist,
-      correct: question.answer,
+      picked: question.answers[idx].artist,
+      correct: question.song.artist,
       mistakes,
     });
   });

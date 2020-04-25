@@ -9,8 +9,8 @@ it(`Renders Audioplayer component correctly`, () => {
   const tree = renderer
                 .create(
                     <Audioplayer
-                      src={questions[0].options[0].src}
-                      activeTrack={new Audio(questions[0].options[0].src)}
+                      src={questions[0].answers[0].src}
+                      activeTrack={new Audio(questions[0].answers[0].src)}
                       clickHandler={clickHandler}
                     />
                 )

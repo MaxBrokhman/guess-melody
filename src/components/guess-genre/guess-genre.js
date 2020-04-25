@@ -35,11 +35,11 @@ export const GuessGenre = ({question, time}) => {
 
       <section className="game__screen">
         {// eslint-disable-next-line
-        <h2 className="game__title">{`Выберите ${question.answer} треки`}</h2>}
+        <h2 className="game__title">{`Выберите ${question.genre} треки`}</h2>}
         <form className="game__tracks" onSubmit={submitHandler}>
           {// eslint-disable-next-line
-          question.options.map(({src, id}, i) => (
-              <div className="track" key={id}>
+          question.answers.map(({src}, i) => (
+              <div className="track" key={`${src}-${i}`}>
                 <Audioplayer
                   src={src}
                   activeTrack={activeTrack}

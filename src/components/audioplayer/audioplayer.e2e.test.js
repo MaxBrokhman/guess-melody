@@ -12,7 +12,7 @@ describe(`Audioplayer component rendered correctly, play button handler works`, 
     const clickHandler = jest.fn();
     const tree = shallow(
         <Audioplayer
-          src={questions[0].options[0].src}
+          src={questions[0].answers[0].src}
           activeTrack={``}
           clickHandler={clickHandler}
         />

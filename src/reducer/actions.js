@@ -2,13 +2,15 @@ const MISTAKES_LIMIT = 3;
 
 export const getNextQuestion = (dispatch) => dispatch({type: `NEXT_QUESTION`});
 
+export const setLoose = (dispatch) => dispatch({type: `LOOSE`});
+
 const handleWrongAnswer = ({mistakes, limit, dispatch}) => {
   const isToManyMistakes = checkIfTooManyMistakes(mistakes, limit);
   if (!isToManyMistakes) {
     dispatch({type: `MISTAKE`});
     return getNextQuestion(dispatch);
   }
-  return dispatch({type: `LOOSE`});
+  return setLoose(dispatch);
 };
 
 export const handleAnswer = ({
@@ -44,4 +46,17 @@ const checkArtistAnswer = (picked, correct) => picked === correct;
 
 const checkIfTooManyMistakes = (userMistakes, limit) => userMistakes === limit;
 
+export const setQuestions = (newQuestions, dispatch) => dispatch({
+  type: `SET_QUESTIONS`,
+  payload: newQuestions,
+});
 
+export const setFetching = (isFetching, dispatch) => dispatch({
+  type: `SET_FETCHING`,
+  payload: isFetching,
+});
+
+export const setError = (error, dispatch) => dispatch({
+  type: `SET_ERROR`,
+  payload: error,
+});

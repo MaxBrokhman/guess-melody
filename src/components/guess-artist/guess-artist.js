@@ -38,7 +38,7 @@ export const GuessArtist = ({ question, time }) => {
         <div className="game__track">
           <Audioplayer
             // eslint-disable-next-line
-            src={question.src}
+            src={question.song.src}
             activeTrack={activeTrack}
             clickHandler={playerClickHandler}
           />
@@ -46,11 +46,11 @@ export const GuessArtist = ({ question, time }) => {
 
         <form className="game__artist">
           {// eslint-disable-next-line
-          question.options.map(({ artist, imgSrc }, i) => (
-              <div className="artist" key={i}>
+          question.answers.map(({ artist, picture }, i) => (
+              <div className="artist" key={`${artist}-${i}`}>
                 <input className="artist__input visually-hidden" type="radio" name="answer" value={i} id={`answer-${i}`} onChange={answerHandler(i)} />
                 <label className="artist__name" htmlFor={`answer-${i}`}>
-                  <img className="artist__picture" src={imgSrc} alt={artist} />
+                  <img className="artist__picture" src={picture} alt={artist} />
                   {artist}
                 </label>
               </div>

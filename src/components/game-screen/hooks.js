@@ -1,13 +1,20 @@
 import {useEffect} from 'react';
 
-import {useAppContext} from '../../reducer/reducer';
-import {questions} from '../../mocks/questions';
-import {handleTime} from '../../reducer/actions';
+import {handleTime, setLoose} from '../../reducer/actions';
 
-export const useCurrentQuestion = () => {
-  const {state} = useAppContext();
+export const useCurrentQuestion = ({
+  questions,
+  currentQuestion,
+  dispatch,
+}) => {
+  if (currentQuestion === questions.length) {
+    setLoose(dispatch);
+    return {
+      question: null,
+    };
+  }
   return {
-    question: questions[state.currentQuestion],
+    question: questions[currentQuestion],
   };
 };
 
