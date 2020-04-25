@@ -22,28 +22,25 @@ export const sendRequest = ({
   dispatch,
 }) => {
   setFetching(true, dispatch);
-  setError(null, dispatch);
-  api.get(url)
+  return api.get(url)
     .then((response) => {
       if (response.status === 200) {
         if (onSuccess) {
-          onSuccess(response);
+          onSuccess(response.data);
         }
         setFetching(false, dispatch);
         setError(null, dispatch);
-        return true;
+      } else {
+        if (onFailure) {
+          onFailure(dispatch);
+        }
+        onEveryFailure(dispatch);
       }
-      if (onFailure) {
-        onFailure(dispatch);
-      }
-      onEveryFailure(dispatch);
-      return false;
     })
     .catch(() => {
       if (onFailure) {
         onFailure(dispatch);
       }
       onEveryFailure(dispatch);
-      return false;
     });
 };

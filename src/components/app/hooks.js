@@ -6,7 +6,7 @@ import {setQuestions} from '../../reducer/actions';
 export const useQuestionsRequest = (dispatch) => {
   useEffect(() => {
     const onSuccess = (innerDispatch) => (response) => {
-      setQuestions(response.data, innerDispatch);
+      setQuestions(response, innerDispatch);
     };
     sendRequest({
       url: `/questions`,
