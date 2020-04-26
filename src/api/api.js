@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import {setFetching, setError} from './reducer/actions';
+import {setFetching, setError} from '../reducer/actions';
 
 export const api = axios.create({
   baseURL: `https://htmlacademy-react-2.appspot.com/guess-melody`,

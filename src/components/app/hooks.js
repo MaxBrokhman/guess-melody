@@ -1,6 +1,6 @@
 import {useEffect} from 'react';
 
-import {sendRequest} from '../../api';
+import {sendRequest} from '../../api/api';
 import {setQuestions} from '../../reducer/actions';
 
 export const useQuestionsRequest = (dispatch) => {
