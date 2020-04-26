@@ -7,6 +7,8 @@ export const initialState = {
   questions: [],
   isFetching: false,
   error: null,
+  isAuthorizationRequired: true,
+  user: null,
 };
 
 const initialContext = {
@@ -38,6 +40,10 @@ export const reducer = (state = initialState, action) => {
       return Object.assign({}, state, {error: action.payload});
     case `SET_FETCHING`:
       return Object.assign({}, state, {isFetching: action.payload});
+    case `SET_AUTHORIZATION`:
+      return Object.assign({}, state, {isAuthorizationRequired: action.payload});
+    case `SET_USER`:
+      return Object.assign({}, state, {user: action.payload});
     default:
       return state;
   }

@@ -8,39 +8,33 @@ export const api = axios.create({
   withCredentials: true,
 });
 
-const onEveryFailure = (dispatch) => {
-  setFetching(false, dispatch);
-  setError({
-    message: `Questions are not available right now. Please, try again later`,
-  }, dispatch);
-};
-
 export const sendRequest = ({
   url,
   onSuccess,
   onFailure,
   dispatch,
+  method,
+  data,
 }) => {
   setFetching(true, dispatch);
-  return api.get(url)
+  return api[method](url, data)
     .then((response) => {
       if (response.status === 200) {
         if (onSuccess) {
-          onSuccess(response.data);
+          onSuccess(response.data, dispatch);
         }
-        setFetching(false, dispatch);
         setError(null, dispatch);
       } else {
         if (onFailure) {
-          onFailure(dispatch);
+          onFailure();
         }
-        onEveryFailure(dispatch);
       }
+      setFetching(false, dispatch);
     })
     .catch(() => {
       if (onFailure) {
-        onFailure(dispatch);
+        onFailure();
       }
-      onEveryFailure(dispatch);
+      setFetching(false, dispatch);
     });
 };

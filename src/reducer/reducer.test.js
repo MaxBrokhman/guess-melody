@@ -29,4 +29,17 @@ describe(`Reducer works correctly`, () => {
     const newState = reducer(initialState, {type: `SET_FETCHING`, payload: true});
     expect(newState).toMatchObject(Object.assign({}, initialState, {isFetching: true}));
   });
+  it(`Sets isAuthorizationRequired correctly`, () => {
+    const newState = reducer(initialState, {type: `SET_AUTHORIZATION`, payload: true});
+    expect(newState).toMatchObject(Object.assign({}, initialState, {isAuthorizationRequired: true}));
+  });
+  it(`Sets user correctly`, () => {
+    const user = {
+      id: 1,
+      email: `Oliver.conner@gmail.com`,
+      name: `Oliver`,
+    };
+    const newState = reducer(initialState, {type: `SET_USER`, payload: user});
+    expect(newState).toMatchObject(Object.assign({}, initialState, {user}));
+  });
 });

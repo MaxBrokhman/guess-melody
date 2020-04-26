@@ -1,17 +1,21 @@
 import {useEffect} from 'react';
 
 import {sendRequest} from '../../api/api';
-import {setQuestions} from '../../reducer/actions';
+import {setQuestions, setError} from '../../reducer/actions';
 
 export const useQuestionsRequest = (dispatch) => {
+  const onFailure = () => {
+    setError({
+      message: `Questions are not available right now. Please, try again later`,
+    }, dispatch);
+  };
   useEffect(() => {
-    const onSuccess = (innerDispatch) => (response) => {
-      setQuestions(response, innerDispatch);
-    };
     sendRequest({
       url: `/questions`,
-      onSuccess: onSuccess(dispatch),
+      onSuccess: setQuestions,
+      onFailure,
       dispatch,
+      method: `get`,
     });
   }, []);
 };

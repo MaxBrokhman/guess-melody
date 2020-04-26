@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders AuthorizationScreen component correctly 1`] = `
+<section
+  className="login"
+>
+  <div
+    className="login__logo"
+  >
+    <img
+      alt="Угадай мелодию"
+      height="83"
+      src="img/melody-logo.png"
+      width="186"
+    />
+  </div>
+  <h2
+    className="login__title"
+  >
+    Вы настоящий меломан!
+  </h2>
+  <p
+    className="login__total"
+  >
+    За 3 минуты и 25 секунд вы набрали 12 баллов (8 быстрых), совершив 3 ошибки
+  </p>
+  <p
+    className="login__text"
+  >
+    Хотите сравнить свой результат с предыдущими попытками? Представтесь!
+  </p>
+  <form
+    action=""
+    className="login__form"
+    onSubmit={[Function]}
+  >
+    <p
+      className="login__field"
+    >
+      <label
+        className="login__label"
+        htmlFor="name"
+      >
+        Логин
+      </label>
+      <input
+        className="login__input"
+        id="name"
+        name="name"
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+    </p>
+    <p
+      className="login__field"
+    >
+      <label
+        className="login__label"
+        htmlFor="password"
+      >
+        Пароль
+      </label>
+      <input
+        className="login__input"
+        id="password"
+        name="password"
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+      <span
+        className="login__error"
+      >
+        Неверный пароль
+      </span>
+    </p>
+    <button
+      className="login__button button"
+      type="submit"
+    >
+      Войти
+    </button>
+  </form>
+  <button
+    className="replay"
+    type="button"
+  >
+    Сыграть ещё раз
+  </button>
+</section>
+`;
