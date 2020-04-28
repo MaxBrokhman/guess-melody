@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders WinScreen component correctly 1`] = `
+<section
+  className="result"
+>
+  <div
+    className="result__logo"
+  >
+    <img
+      alt="Угадай мелодию"
+      height="83"
+      src="img/melody-logo.png"
+      width="186"
+    />
+  </div>
+  <h2
+    className="result__title"
+  >
+    Вы настоящий меломан!
+  </h2>
+  <p
+    className="result__total"
+  >
+    За 
+    03
+     
+    минуты
+     и 
+    00
+     
+    секунд
+     вы набрали 
+    4
+     
+    балла
+    , дав 
+    3
+     
+    быстрых ответа
+    , совершив 
+    3
+     
+    ошибки
+  </p>
+  <button
+    className="replay"
+    type="button"
+  >
+    Сыграть ещё раз
+  </button>
+</section>
+`;

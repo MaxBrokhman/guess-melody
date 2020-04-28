@@ -6,6 +6,9 @@ export const useArtistAnswer = ({
   question,
   dispatch,
   mistakes,
+  currentTime,
+  answers,
+  currentQuestion,
 }) => {
   const answerHandler = useCallback((idx) => () => {
     handleAnswer({
@@ -14,6 +17,9 @@ export const useArtistAnswer = ({
       picked: question.answers[idx].artist,
       correct: question.song.artist,
       mistakes,
+      currentTime,
+      answers,
+      currentQuestion,
     });
   });
   return {

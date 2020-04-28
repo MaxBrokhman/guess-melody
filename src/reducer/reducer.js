@@ -7,8 +7,8 @@ export const initialState = {
   questions: [],
   isFetching: false,
   error: null,
-  isAuthorizationRequired: true,
-  user: null,
+  answers: [],
+  isLost: false,
 };
 
 const initialContext = {
@@ -31,7 +31,7 @@ export const reducer = (state = initialState, action) => {
         mistakes: state.mistakes + 1,
       });
     case `LOOSE`:
-      return Object.assign({}, initialState);
+      return Object.assign({}, state, {isLost: true});
     case `TICK`:
       return Object.assign({}, state, {time: action.payload});
     case `SET_QUESTIONS`:
@@ -40,10 +40,12 @@ export const reducer = (state = initialState, action) => {
       return Object.assign({}, state, {error: action.payload});
     case `SET_FETCHING`:
       return Object.assign({}, state, {isFetching: action.payload});
-    case `SET_AUTHORIZATION`:
-      return Object.assign({}, state, {isAuthorizationRequired: action.payload});
-    case `SET_USER`:
-      return Object.assign({}, state, {user: action.payload});
+    case `ADD_ANSWER`:
+      return Object.assign({}, state, {
+        answers: state.answers.concat(action.payload),
+      });
+    case `RESET_GAME`:
+      return Object.assign({}, initialState);
     default:
       return state;
   }

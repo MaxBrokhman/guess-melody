@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders LossScreen component correctly 1`] = `
+<section
+  className="result"
+>
+  <div
+    className="result__logo"
+  >
+    <img
+      alt="Угадай мелодию"
+      height="83"
+      src="img/melody-logo.png"
+      width="186"
+    />
+  </div>
+  <h2
+    className="result__title"
+  >
+    Увы и ах!
+  </h2>
+  <p
+    className="result__total result__total--fail"
+  >
+    Время вышло! Вы не успели отгадать все мелодии
+  </p>
+  <button
+    className="replay"
+    type="button"
+  >
+    Попробовать ещё раз
+  </button>
+</section>
+`;

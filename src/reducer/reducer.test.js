@@ -9,9 +9,13 @@ describe(`Reducer works correctly`, () => {
     const newState = reducer(initialState, {type: `MISTAKE`});
     expect(newState).toMatchObject(Object.assign({}, initialState, {mistakes: 1}));
   });
-  it(`Reducer resets state if too many mistakes`, () => {
-    const newState = reducer(initialState, {type: `TOO_MANY_MISTAKES`});
-    expect(newState).toMatchObject(initialState);
+  it(`Set loosing state correctly`, () => {
+    const newState = reducer(initialState, {type: `LOOSE`});
+    expect(newState).toMatchObject(Object.assign({}, initialState, {isLost: true}));
+  });
+  it(`Resets state correctly`, () => {
+    const newState = reducer(initialState, {type: `RESET_GAME`});
+    expect(newState).toMatchObject(Object.assign({}, initialState));
   });
   it(`Updates time correctly`, () => {
     const newState = reducer(initialState, {type: `TICK`, payload: 299});
@@ -29,17 +33,13 @@ describe(`Reducer works correctly`, () => {
     const newState = reducer(initialState, {type: `SET_FETCHING`, payload: true});
     expect(newState).toMatchObject(Object.assign({}, initialState, {isFetching: true}));
   });
-  it(`Sets isAuthorizationRequired correctly`, () => {
-    const newState = reducer(initialState, {type: `SET_AUTHORIZATION`, payload: true});
-    expect(newState).toMatchObject(Object.assign({}, initialState, {isAuthorizationRequired: true}));
-  });
-  it(`Sets user correctly`, () => {
-    const user = {
-      id: 1,
-      email: `Oliver.conner@gmail.com`,
-      name: `Oliver`,
+  it(`Adds answer correctly`, () => {
+    const answer = {
+      isCorrect: true,
+      isFast: false,
+      time: 256,
     };
-    const newState = reducer(initialState, {type: `SET_USER`, payload: user});
-    expect(newState).toMatchObject(Object.assign({}, initialState, {user}));
+    const newState = reducer(initialState, {type: `ADD_ANSWER`, payload: answer});
+    expect(newState).toMatchObject(Object.assign({}, initialState, {answers: [answer]}));
   });
 });

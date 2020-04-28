@@ -1,4 +1,8 @@
-import {useState, useCallback} from 'react';
+import {
+  useState,
+  useCallback,
+  useEffect,
+} from 'react';
 
 import {handleAnswer} from '../../reducer/actions';
 
@@ -23,26 +27,35 @@ export const useGenreAnswer = ({
   question,
   dispatch,
   mistakes,
+  currentTime,
+  answers,
+  currentQuestion,
 }) => {
-  const [answers, setAnswer] = useState(new Array(question.answers.length).fill(false));
+  const [chooses, setChoose] = useState([]);
+  useEffect(() => {
+    setChoose(new Array(question.answers.length).fill(false));
+  }, [question]);
   const changeHandler = useCallback((idx) => () => {
-    const updatedAnswers = [...answers];
+    const updatedAnswers = [...chooses];
     updatedAnswers[idx] = !updatedAnswers[idx];
-    setAnswer(updatedAnswers);
-  }, [answers, question]);
+    setChoose(updatedAnswers);
+  }, [chooses, question]);
 
   const submitHandler = useCallback((evt) => {
     evt.preventDefault();
     handleAnswer({
       dispatch,
       type: question.type,
-      picked: answers,
+      picked: chooses,
       mistakes,
+      currentTime,
+      answers,
+      currentQuestion,
       correct: question.answers.map((answer) => {
         return answer.genre === question.genre;
-      })
+      }),
     });
-  }, [answers, question]);
+  }, [chooses, question]);
   return {
     changeHandler,
     submitHandler,

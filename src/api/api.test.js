@@ -66,5 +66,3 @@ describe(`Api calls work correctly`, () => {
     });
   });
 });
-
-

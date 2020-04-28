@@ -5,20 +5,36 @@ import {MistakeCounter} from '../mistake-counter/mistake-counter';
 import {useAppContext} from '../../reducer/reducer';
 import {useTracks, useGenreAnswer} from './hooks';
 import {Timer} from '../timer/timer';
+import {ConfirmModal} from '../confirm-modal/confirm-modal';
 
-// eslint-disable-next-line
-export const GuessGenre = ({question, time}) => {
+export const GuessGenre = ({
+  // eslint-disable-next-line
+  question, 
+  // eslint-disable-next-line
+  time, 
+  // eslint-disable-next-line
+  backBtnHandler,
+  // eslint-disable-next-line
+  isConfirmModalOpen,
+  // eslint-disable-next-line
+  confirmHandler,
+  // eslint-disable-next-line
+  closeConfirmModalHandler,
+}) => {
   const {activeTrack, playerClickHandler} = useTracks();
   const {state, dispatch} = useAppContext();
   const {changeHandler, submitHandler} = useGenreAnswer({
     question,
     dispatch,
     mistakes: state.mistakes,
+    currentTime: state.time,
+    answers: state.answers,
+    currentQuestion: state.currentQuestion,
   });
   return (
     <section className="game game--genre">
       <header className="game__header">
-        <a className="game__back" href="#">
+        <a className="game__back" href="#" onClick={backBtnHandler}>
           <span className="visually-hidden">Сыграть ещё раз</span>
           <img className="game__logo" src="img/melody-logo-ginger.png" alt="Угадай мелодию" />
         </a>
@@ -32,14 +48,16 @@ export const GuessGenre = ({question, time}) => {
 
         <MistakeCounter mistakes={new Array(state.mistakes).fill(false)} />
       </header>
-
+      {
+        isConfirmModalOpen && <ConfirmModal onConfirm={confirmHandler} onClose={closeConfirmModalHandler} />
+      }
       <section className="game__screen">
         {// eslint-disable-next-line
         <h2 className="game__title">{`Выберите ${question.genre} треки`}</h2>}
         <form className="game__tracks" onSubmit={submitHandler}>
           {// eslint-disable-next-line
           question.answers.map(({src}, i) => (
-              <div className="track" key={`${src}-${i}`}>
+              <div className="track" key={`${src}-${i}-${state.currentQuestion}`}>
                 <Audioplayer
                   src={src}
                   activeTrack={activeTrack}
