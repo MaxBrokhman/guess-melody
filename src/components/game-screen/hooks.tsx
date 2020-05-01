@@ -2,6 +2,7 @@ import {
   useEffect,
   useState,
   useCallback,
+  SyntheticEvent,
 } from 'react';
 
 import {
@@ -9,8 +10,16 @@ import {
   resetGame,
   formatTime,
 } from '../../reducer/actions';
+import {TDispatch, TFormatTime} from '../../reducer/types';
 
-export const useTimer = (currentTime, dispatch) => {
+type TUseConfirmModal = {
+  isConfirmModalOpen: boolean;
+  confirmHandler: () => void;
+  closeConfirmModalHandler: () => void;
+  backBtnHandler: (evt: SyntheticEvent) => void;
+}
+
+export const useTimer = (currentTime: number, dispatch: TDispatch): {time: TFormatTime} => {
   useEffect(() => {
     setTimeout(() => {
       handleTime(currentTime - 1, dispatch);
@@ -21,7 +30,7 @@ export const useTimer = (currentTime, dispatch) => {
   };
 };
 
-export const useConfirmModal = (dispatch) => {
+export const useConfirmModal = (dispatch: TDispatch): TUseConfirmModal => {
   const [isOpen, setOpen] = useState(false);
   const confirmHandler = useCallback(() => {
     setOpen(false);

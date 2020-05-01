@@ -12,7 +12,7 @@ import {
   Context,
 } from '../../reducer/reducer';
 
-export const App = () => {
+export const App = (): JSX.Element => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const {playAgainHandler} = usePlayAgainHandler(dispatch);
   const isEnd = state.currentQuestion > 0 && state.currentQuestion === state.questions.length;

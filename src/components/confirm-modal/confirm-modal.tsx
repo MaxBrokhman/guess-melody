@@ -1,7 +1,11 @@
 import React from 'react';
 
-// eslint-disable-next-line
-export const ConfirmModal = ({ onConfirm, onClose }) => (
+type TConfirmModalProps = {
+  onConfirm: () => void;
+  onClose: () => void;
+}
+
+export const ConfirmModal = ({onConfirm, onClose}: TConfirmModalProps): JSX.Element => (
   <section className="modal">
     <button className="modal__close" type="button" onClick={onClose}>
       <span className="visually-hidden">Закрыть</span>

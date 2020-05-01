@@ -1,4 +1,6 @@
-export const questions = [
+import {TQuestion} from '../reducer/types';
+
+export const questions: Array<TQuestion> = [
   {
     type: `genre`,
     genre: `blues`,

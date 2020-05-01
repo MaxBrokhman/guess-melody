@@ -2,8 +2,12 @@ import React from 'react';
 
 import {useLossScreenMessage} from './hooks';
 
-// eslint-disable-next-line
-export const LossScreen = ({mistakes, playAgainHandler}) => {
+type TLossScreenProps = {
+  mistakes: number;
+  playAgainHandler: () => void;
+}
+
+export const LossScreen = ({mistakes, playAgainHandler}: TLossScreenProps): JSX.Element => {
   const {message} = useLossScreenMessage(mistakes);
   return (
     <section className="result">

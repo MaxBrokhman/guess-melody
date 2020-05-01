@@ -5,7 +5,7 @@ import {GuessGenre} from '../guess-genre/guess-genre';
 import {useTimer, useConfirmModal} from './hooks';
 import {useAppContext} from '../../reducer/reducer';
 
-export const GameScreen = () => {
+export const GameScreen = (): JSX.Element => {
   const {state, dispatch} = useAppContext();
   const question = state.questions[state.currentQuestion];
   const {

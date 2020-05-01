@@ -5,7 +5,9 @@
     commonjs: true,
     jest: true,
   },
-  extends: ['htmlacademy/es6', 'plugin:react/recommended'],
+  extends: ['htmlacademy/es6', 'plugin:react/recommended', 'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:@typescript-eslint/recommended',],
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -13,10 +15,14 @@
     ecmaVersion: 6,
     sourceType: module,
   },
-  plugins: ['react'],
+  plugins: ['react', '@typescript-eslint'],
   settings: {
     react: {
       version: 16,
     },
   },
+  rules: {
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": ["error"]
+  }
 }

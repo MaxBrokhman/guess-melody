@@ -1,4 +1,9 @@
-export const useActiveTrack = (activeTrack, {current}) => {
+import {MutableRefObject} from "react";
+
+export const useActiveTrack = (
+    activeTrack: string,
+    {current}: MutableRefObject<HTMLAudioElement>,
+): {className: string} => {
   const isCurrentTrackActive = current && activeTrack === current.src;
   const className = isCurrentTrackActive
     ? `pause`

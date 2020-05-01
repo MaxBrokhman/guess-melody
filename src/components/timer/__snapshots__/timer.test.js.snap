@@ -3,7 +3,6 @@
 exports[`Renders Timer component correctly 1`] = `
 <div
   className="timer__value"
-  xmlns="http://www.w3.org/1999/xhtml"
 >
   <span
     className="timer__mins"

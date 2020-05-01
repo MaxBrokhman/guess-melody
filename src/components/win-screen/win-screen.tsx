@@ -3,9 +3,21 @@ import React from 'react';
 import {getCaption} from '../../utils/get-caption';
 
 import {useWinStats} from './hooks';
+import {TAnswer, TDispatch} from '../../reducer/types';
 
-// eslint-disable-next-line
-export const WinScreen = ({answers, dispatch, mistakes, playAgainHandler}) => {
+type TWinScreenProps = {
+  answers: Array<TAnswer>;
+  dispatch: TDispatch;
+  mistakes: number;
+  playAgainHandler: () => void;
+}
+
+export const WinScreen = ({
+  answers,
+  dispatch,
+  mistakes,
+  playAgainHandler
+}: TWinScreenProps): JSX.Element => {
   const {results} = useWinStats(answers, dispatch);
   return (
     <section className="result">

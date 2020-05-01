@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "sourceMap": true,
+    "module": "commonjs",
+    "target": "es2016",
+    "jsx": "react",
+    "allowSyntheticDefaultImports": true,
+    "lib": ["dom", "esnext"],
+    "esModuleInterop": true
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+  ]
+}

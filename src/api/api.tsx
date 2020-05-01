@@ -1,6 +1,16 @@
 import axios from 'axios';
 
 import {setFetching, setError} from '../reducer/actions';
+import {TQuestion, TDispatch} from '../reducer/types';
+
+type TSendRequestProps = {
+  url: string;
+  onSuccess: (data: Array<TQuestion>, dispatch: TDispatch) => void;
+  onFailure: () => void;
+  method: string;
+  data?: {};
+  dispatch: TDispatch;
+}
 
 export const api = axios.create({
   baseURL: `https://htmlacademy-react-2.appspot.com/guess-melody`,
@@ -15,7 +25,7 @@ export const sendRequest = ({
   dispatch,
   method,
   data,
-}) => {
+}: TSendRequestProps): Promise<void> => {
   setFetching(true, dispatch);
   return api[method](url, data)
     .then((response) => {

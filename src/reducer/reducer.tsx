@@ -1,6 +1,13 @@
 import {createContext, useContext} from 'react';
 
-export const initialState = {
+import {
+  TState,
+  TContext,
+  TAction,
+  TAnswer,
+} from './types';
+
+export const initialState: TState = {
   mistakes: 0,
   currentQuestion: -1,
   time: 300,
@@ -11,16 +18,16 @@ export const initialState = {
   isLost: false,
 };
 
-const initialContext = {
+const initialContext: TContext = {
   state: initialState,
   dispatch: null,
 };
 
 export const Context = createContext(initialContext);
 
-export const useAppContext = () => useContext(Context);
+export const useAppContext = (): TContext => useContext(Context);
 
-export const reducer = (state = initialState, action) => {
+export const reducer = (state = initialState, action: TAction): TState => {
   switch (action.type) {
     case `NEXT_QUESTION`:
       return Object.assign({}, state, {
@@ -42,7 +49,7 @@ export const reducer = (state = initialState, action) => {
       return Object.assign({}, state, {isFetching: action.payload});
     case `ADD_ANSWER`:
       return Object.assign({}, state, {
-        answers: state.answers.concat(action.payload),
+        answers: state.answers.concat((action.payload as TAnswer)),
       });
     case `RESET_GAME`:
       return Object.assign({}, initialState);

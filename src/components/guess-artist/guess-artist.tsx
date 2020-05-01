@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {SyntheticEvent} from 'react';
 
 import {Audioplayer} from '../audioplayer/audioplayer';
 import {useTracks} from '../guess-genre/hooks';
@@ -7,21 +7,25 @@ import {useAppContext} from '../../reducer/reducer';
 import {useArtistAnswer} from './hooks';
 import {Timer} from '../timer/timer';
 import {ConfirmModal} from '../confirm-modal/confirm-modal';
+import {TQuestion, TFormatTime} from '../../reducer/types';
+
+type TGuessArtistProps = {
+  question: TQuestion;
+  time: TFormatTime;
+  backBtnHandler: (evt: SyntheticEvent) => void;
+  isConfirmModalOpen: boolean;
+  confirmHandler: () => void;
+  closeConfirmModalHandler: () => void;
+}
 
 export const GuessArtist = ({
-  // eslint-disable-next-line
   question,
-  // eslint-disable-next-line
   time,
-  // eslint-disable-next-line
   backBtnHandler,
-  // eslint-disable-next-line
   isConfirmModalOpen,
-  // eslint-disable-next-line
   confirmHandler,
-  // eslint-disable-next-line
   closeConfirmModalHandler,
-}) => {
+}: TGuessArtistProps): JSX.Element => {
   const {activeTrack, playerClickHandler} = useTracks();
   const {state, dispatch} = useAppContext();
   const {answerHandler} = useArtistAnswer({
@@ -55,7 +59,6 @@ export const GuessArtist = ({
         <h2 className="game__title">Кто исполняет эту песню?</h2>
         <div className="game__track">
           <Audioplayer
-            // eslint-disable-next-line
             src={question.song.src}
             activeTrack={activeTrack}
             clickHandler={playerClickHandler}
@@ -63,8 +66,8 @@ export const GuessArtist = ({
         </div>
 
         <form className="game__artist">
-          {// eslint-disable-next-line
-          question.answers.map(({ artist, picture }, i) => (
+          {
+            question.answers.map(({artist, picture}, i) => (
               <div className="artist" key={`${artist}-${i}`}>
                 <input className="artist__input visually-hidden" type="radio" name="answer" value={i} id={`answer-${i}`} onChange={answerHandler(i)} />
                 <label className="artist__name" htmlFor={`answer-${i}`}>

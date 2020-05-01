@@ -1,4 +1,6 @@
-export const answers = [
+import {TAnswer} from '../reducer/types';
+
+export const answers: Array<TAnswer> = [
   {
     isCorrect: true,
     isFast: false,

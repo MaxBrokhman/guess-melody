@@ -5,10 +5,15 @@ import {
 } from 'react';
 
 import {handleAnswer} from '../../reducer/actions';
+import {
+  TUseTracks,
+  TUseGenreAnswerProps,
+  TUseGenreAnswer,
+} from './types';
 
-export const useTracks = () => {
+export const useTracks = (): TUseTracks => {
   const [activeTrack, setActiveTrack] = useState(``);
-  const playerClickHandler = (ref) => () => {
+  const playerClickHandler = (ref) => (): void => {
     const {current} = ref;
     if (current) {
       const trackToSet = activeTrack !== current.src
@@ -30,12 +35,12 @@ export const useGenreAnswer = ({
   currentTime,
   answers,
   currentQuestion,
-}) => {
+}: TUseGenreAnswerProps): TUseGenreAnswer => {
   const [chooses, setChoose] = useState([]);
   useEffect(() => {
     setChoose(new Array(question.answers.length).fill(false));
   }, [question]);
-  const changeHandler = useCallback((idx) => () => {
+  const changeHandler = useCallback((idx) => (): void => {
     const updatedAnswers = [...chooses];
     updatedAnswers[idx] = !updatedAnswers[idx];
     setChoose(updatedAnswers);

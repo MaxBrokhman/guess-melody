@@ -4,8 +4,11 @@ import {useStartBtn, useQuestionsRequest} from './hooks';
 import {Spinner} from '../spinner/spinner';
 import {useAppContext} from '../../reducer/reducer';
 
-// eslint-disable-next-line
-export const WelcomeScreen = ({isFetching}) => {
+type TWelcomeScreenProps = {
+  isFetching: boolean;
+}
+
+export const WelcomeScreen = ({isFetching}: TWelcomeScreenProps): JSX.Element => {
   const {dispatch} = useAppContext();
   const {startBtnClickHandler} = useStartBtn(dispatch);
   useQuestionsRequest(dispatch);
